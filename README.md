@@ -1,6 +1,6 @@
-# Meme Fight Arena
+# Thoth Ares
 
-A decentralized gaming platform where users can battle with memes and earn rewards through betting.
+A decentralized gaming platform where users can battle with memes and earn rewards through betting. Built by the team My McLife In Code Blue.
 
 ## Overview
 
