@@ -15,10 +15,24 @@
   }
 
   body {
-    @apply bg-background text-neon-dim antialiased font-pixel;
-    background-image: theme('backgroundImage.retro-grid');
-    background-size: 40px 40px;
+    background-color: #0B0F14;               
+    color: #00CC52;                        
+    font-family: "Press Start 2P", monospace;
     min-height: 100vh;
+  
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        rgba(0, 255, 102, .2) 0 1px,
+        transparent            1px 40px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(0, 255, 102, .2) 0 1px,
+        transparent            1px 40px
+      );
+    background-size: 40px 40px;
+    background-attachment: fixed;           
   }
 }
 
