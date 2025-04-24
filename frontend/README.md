@@ -1,54 +1,81 @@
-# React + TypeScript + Vite
+# Snake on the Throne - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A retro-styled blockchain gaming platform built with React, TypeScript, and Vite, featuring a unique meme battle system with betting capabilities.
 
-Currently, two official plugins are available:
+## 🎮 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Visual Design
 
-## Expanding the ESLint configuration
+- Retro arcade-style UI with neon green (#00FF66) aesthetics
+- Custom pixel art font using "Press Start 2P"
+- Responsive grid background with dynamic glow effects
+- Animated UI elements and transitions
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Game Components
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- Interactive meme battle arena
+- Real-time matchmaking system
+- Character customization interface
+- Live leaderboard updates
+- Betting system integration
+
+### Technical Stack
+
+- **Framework:** React 18+ with TypeScript
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS with custom retro theme
+- **State Management:** React Context + Hooks
+- **Routing:** React Router v6
+- **Blockchain Integration:** Web3.js/Ethers.js
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 16.0 or higher
+- npm
+- MetaMask or similar Web3 wallet
+
+### Installation
+
+```bash
+# Install dependencies
+npm install --legacy-peer-deps
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Environment Setup
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Create a `.env` file in the frontend root:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```env
+VITE_APP_API_URL=your_backend_url
+VITE_APP_CONTRACT_ADDRESS=your_contract_address
 ```
+
+## 🎨 UI Components
+
+### Layout Structure
+
+- `components/` - Reusable UI components
+- `pages/` - Main route pages
+- `hooks/` - Custom React hooks
+- `context/` - Global state management
+- `utils/` - Helper functions
+- `assets/` - Images and static files
+
+## 🔧 Development
+
+### Code Style
+
+- ESLint configuration for TypeScript
+- Prettier for code formatting
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
