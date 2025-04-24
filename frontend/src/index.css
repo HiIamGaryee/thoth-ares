@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Press+Start+2P&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-neon-dim antialiased font-pixel;
+    background-image: theme('backgroundImage.retro-grid');
+    background-size: 40px 40px;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .frame {
+    border: 2px solid #00FF66;
+    box-shadow: 0 0 8px 2px #00FF66;
+    padding: 1.5rem;                 
+    border-radius: 0.5rem;
+  }
+
+  .hash-span {
+    margin-top: -100px;
+    padding-bottom: 100px;
+    display: block;
+  }
+
+  .retro-border  { border: 2px solid #00FF66; border-radius: 0.5rem; padding: 1rem; }
+  .retro-text    { color: #00FF66; font-family: monospace; }
+  .retro-button  {
+    background: #00FF66;
+    color: #0B0F14;
+    font-family: monospace;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.25rem;
+    transition: background 150ms;
+  }  
+  .retro-button:hover { background: #00CC52; }
+
+}
+
+@layer utilities {
+  .black-gradient {
+    background: linear-gradient(to right, #434343, #000000);
+  }
+
+  .violet-gradient {
+    background: linear-gradient(-90deg, #804dee 0%, rgba(60, 51, 80, 0) 100%);
+  }
+
+  .green-pink-gradient {
+    background: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
+  }
+
+  .orange-text-gradient,
+  .green-text-gradient,
+  .blue-text-gradient,
+  .pink-text-gradient,
+  .projectTitle,
+  .heroHeadText {
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .orange-text-gradient {
+    background: linear-gradient(to top, #f12711, #f5af19);
+  }
+
+  .green-text-gradient {
+    background: linear-gradient(to top, #11998e, #38ef7d);
+  }
+
+  .blue-text-gradient {
+    background: linear-gradient(to top, #2f80ed, #56ccf2);
+  }
+
+  .pink-text-gradient {
+    background: linear-gradient(to top, #ec008c, #fc6767);
+  }
+
+  .projectTitle {
+    font-family: 'Press Start 2P', cursive;
+    font-weight: 900;
+    background: linear-gradient(
+      90deg,
+      #e40303,
+      #ff8c00,
+      #ffed00,
+      #008026,
+      #004dff,
+      #750787
+    );
+  }
+
+  .heroHeadText {
+    font-family: 'Press Start 2P', cursive;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: linear-gradient(90deg, #00c9ff, #92fe9d, #ffd200, #ff9a00);
+    font-size: 40px;
+    line-height: 1.2;
+  }
+
+  @screen sm {
+    .heroHeadText {
+      font-size: 45px;
+    }
+  }
+
+  @screen md {
+    .heroHeadText {
+      font-size: 50px;
+    }
+  }
+
+  @screen lg {
+    .heroHeadText {
+      font-size: 70px;
+      line-height: 98px;
+    }
+  }
+
+  .heroSecText {
+    color: #dfd9ff;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  @screen sm {
+    .heroSecText {
+      font-size: 25px;
+    }
+  }
+
+  @screen md {
+    .heroSecText {
+      font-size: 36px;
+    }
+  }
+
+  @screen lg {
+    .heroSecText {
+      font-size: 38px;
+      line-height: 60px;
+    }
+  }
+
+  .heroSubText {
+    color: #dfd9ff;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  @screen sm {
+    .heroSubText {
+      font-size: 20px;
+    }
+  }
+
+  @screen md {
+    .heroSubText {
+      font-size: 26px;
+    }
+  }
+
+  @screen lg {
+    .heroSubText {
+      font-size: 30px;
+      line-height: 40px;
+    }
+  }
+
+  .sectionHeadText {
+    color: white;
+    font-weight: 900;
+    font-size: 30px;
+  }
+
+  @screen sm {
+    .sectionHeadText {
+      font-size: 40px;
+    }
+  }
+
+  @screen md {
+    .sectionHeadText {
+      font-size: 50px;
+    }
+  }
+
+  @screen lg {
+    .sectionHeadText {
+      font-size: 60px;
+    }
+  }
+
+  .sectionSubText {
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  @screen sm {
+    .sectionSubText {
+      font-size: 18px;
+    }
+  }
+
+  .field-class {
+    background-color: var(--tertiary);
+    padding: 1rem;
+    color: white;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    font-weight: 500;
+  }
+
+  .field-class::placeholder {
+    color: var(--secondary);
+  }
+
+  .dialog-background {
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(1px) brightness(80%);
+    -webkit-backdrop-filter: blur(1px) brightness(80%);
+  }
+
+  .dialog-content {
+    background: #050816;
+    padding: 20px;
+    border-radius: 8px;
+    width: auto;
+    max-width: 500px;
+    z-index: 1051;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .toast-background {
+    z-index: 9999;
+    background: #ff0000;
+  }
+
+  .canvas-loader {
+    font-size: 10px;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    position: relative;
+    text-indent: -9999em;
+    animation: mulShdSpin 1.1s infinite ease;
+    transform: translateZ(0);
+  }
+
+  @keyframes mulShdSpin {
+    0%, 100% {
+      box-shadow:
+        0em -2.6em 0em 0em #ffffff,
+        1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
+        2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+        1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
+        0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
+        -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
+        -2.6em 0em 0 0em rgba(255, 255, 255, 0.5),
+        -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+    }
+    /* Other keyframe stops omitted for brevity */
+  }
+}
