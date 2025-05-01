@@ -34,6 +34,7 @@ module.exports = {
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
         pixel: ['"Press Start 2P"', 'cursive'],
+        pixer: ['Pixer', 'monospace'],
       },
       boxShadow: {
         neon: '0 0 8px #00ff00',
@@ -57,5 +58,6 @@ module.exports = {
     'bg-green-text-gradient',
     'bg-blue-text-gradient',
     'bg-pink-text-gradient',
+    'font-pixer',
   ],
 };
