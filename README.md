@@ -44,11 +44,20 @@ Meme Fight Arena is an innovative gaming platform that combines the fun of meme 
 ## Getting Started
 
 1. Clone the repository
-2. Install dependencies:
+
+2. Go to to frontend folder
+
+   ```bash
+   cd frontend
+   ```
+
+3. Install dependencies:
+
    ```bash
    npm install --legacy-peer-deps
    ```
-3. Start the development server:
+
+4. Start the development server:
    ```bash
    npm run dev
    ```
