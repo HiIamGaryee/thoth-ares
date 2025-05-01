@@ -4,6 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Pixer';
+  src: url('/fonts/Pixer-Regular.woff2') format('woff2'),
+       url('/fonts/Pixer-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 @layer base {
   * {
     margin: 0;
@@ -11,9 +20,12 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
     font-family: 'Poppins', sans-serif;
+    
     color-scheme: dark;
   }
-
+  h1, h2, h3, h4, h5 {
+    font-family: 'Pixer', monospace;
+  }
   body {
     background-color: #0B0F14;               
     color: #00CC52;                        
@@ -309,3 +321,5 @@
     /* Other keyframe stops omitted for brevity */
   }
 }
+
+

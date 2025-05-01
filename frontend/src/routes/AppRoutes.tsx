@@ -5,11 +5,13 @@ import ProfilePage from '../pages/ProfilePage';
 import WalletPage from '../pages/WalletPage';
 import FightPage from '../pages/FightPage';
 import PrivateRoute from './PrivateRoute';
+import FaqPage from '../pages/FaqPage';
 
 const AppRoutes = () => (
   <Routes>
     <Route path="/" element={<HomePage />} />
     <Route path="/about" element={<AboutUsPage />} />
+    <Route path="/frequently-asked-question" element={<FaqPage />} />
 
     <Route
       path="/profile"
