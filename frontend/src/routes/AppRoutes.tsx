@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import DashboardPage from '../pages/DashboardPage';
 import HomePage from '../pages/HomePage';
 import AboutUsPage from '../pages/AboutUsPage';
 import ProfilePage from '../pages/ProfilePage';
@@ -9,7 +10,8 @@ import FaqPage from '../pages/FaqPage';
 
 const AppRoutes = () => (
   <Routes>
-    <Route path="/" element={<HomePage />} />
+    <Route path="/" element={<DashboardPage />} />
+    <Route path="/homepage" element={<HomePage />} />
     <Route path="/about" element={<AboutUsPage />} />
     <Route path="/frequently-asked-question" element={<FaqPage />} />
 
