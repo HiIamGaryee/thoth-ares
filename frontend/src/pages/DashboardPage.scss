@@ -1,0 +1,987 @@
+$bg: #000000;
+$panel: #0e2214;
+$green: #00FF66;
+$green-light: #00CC52;
+$green-dark: #004d28;
+$green-bg: rgba(0, 255, 102, 0.05);
+$green-bg-darker: rgba(0, 255, 102, 0.03);
+$white: #eaffea;
+$gray: #1a2a1a;
+$font: 'Courier New', monospace;
+
+.dashboard {
+  background: $bg;
+  color: $green;
+  font-family: $font;
+  min-height: 100vh;
+  padding-bottom: 40px;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(0, 255, 102, 0.02) 0%, transparent 80%),
+    linear-gradient(to bottom, rgba(0, 255, 102, 0.01) 0%, transparent 100%);
+}
+
+.dashboard__nav {
+  display: flex;
+  align-items: center;
+  padding: 10px 32px;
+  background: $bg;
+  border-bottom: 1px solid $green;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px rgba(0, 255, 102, 0.05);
+}
+.dashboard__logo {
+  font-weight: bold;
+  margin-right: 32px;
+  color: $green;
+  font-size: 1.2rem;
+}
+.dashboard__nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.dashboard__nav-links li {
+  color: $green;
+  cursor: pointer;
+  transition: color 0.2s;
+  &:hover {
+    color: $white;
+    text-shadow: 0 0 5px rgba(0, 255, 102, 0.5);
+  }
+}
+
+.dashboard__level-bar {
+  display: flex;
+  align-items: center;
+  padding: 10px 32px;
+  font-size: 1.2rem;
+  border-bottom: 1px solid $green-light;
+  background: $green-bg-darker;
+}
+.dashboard__progress-bar {
+  flex: 1;
+  height: 14px;
+  background: $panel;
+  border-radius: 0px;
+  margin: 0 12px;
+  overflow: hidden;
+  border: 1px solid $green-dark;
+}
+.dashboard__progress-bar-fill {
+  height: 100%;
+  background: $green;
+  border-radius: 0;
+  transition: width 0.4s;
+  box-shadow: 0 0 5px rgba(0, 255, 102, 0.8);
+}
+
+.dashboard__stats {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 32px;
+  font-size: 2.2rem;
+  border-bottom: 1px solid $green-light;
+  padding-bottom: 20px;
+  margin-bottom: 16px;
+  position: relative;
+  background: $green-bg-darker;
+}
+
+.dashboard__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $green;
+  min-width: 90px;
+  position: relative;
+}
+
+// Add vertical dividers between stats sections
+.dashboard__stat:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  bottom: -10px;
+  width: 1px;
+  background: $green-light;
+  right: -32px;
+}
+
+.dashboard__stat-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: $green;
+  text-shadow: 0 0 5px rgba(0, 255, 102, 0.3);
+}
+.dashboard__stat-sub {
+  font-size: 1.1rem;
+  color: $green;
+  margin-top: 0;
+}
+.dashboard__stat-label {
+  font-size: 0.9rem;
+  color: $green;
+  margin-top: 2px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.dashboard__stat--credits {
+  align-items: flex-end;
+  .dashboard__stat-value {
+    color: $green;
+    font-size: 2.1rem;
+  }
+  .dashboard__stat-label {
+    color: $green;
+    font-size: 0.8rem;
+    line-height: 1.1;
+    text-align: right;
+  }
+}
+
+// Storyline section
+.dashboard__storyline {
+  display: flex;
+  align-items: center;
+  padding: 16px 32px;
+  border: 1px solid $green;
+  margin: 0 32px 16px;
+  background: $green-bg-darker;
+  position: relative;
+  box-shadow: inset 0 0 10px rgba(0, 255, 102, 0.05);
+}
+
+.dashboard__storyline-label {
+  color: $green;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.dashboard__storyline-text {
+  color: $green;
+  flex: 1;
+}
+
+.dashboard__storyline-button {
+  background: $green;
+  color: $bg;
+  border: none;
+  padding: 4px 12px;
+  font-family: $font;
+  font-weight: bold;
+  cursor: pointer;
+  &:hover {
+    background: $green-light;
+    box-shadow: 0 0 8px rgba(0, 255, 102, 0.8);
+  }
+}
+
+// Tabs
+.dashboard__tabs {
+  display: flex;
+  padding: 0 32px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid $green-dark;
+  background: $green-bg-darker;
+}
+
+.dashboard__tab {
+  background: transparent;
+  color: $green;
+  border: none;
+  padding: 8px 16px;
+  font-family: $font;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  margin-right: 24px;
+  &:hover {
+    color: $white;
+    text-shadow: 0 0 5px rgba(0, 255, 102, 0.5);
+  }
+}
+
+.dashboard__tab--active {
+  color: $green;
+  text-shadow: 0 0 5px rgba(0, 255, 102, 0.3);
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: $green;
+    box-shadow: 0 0 5px rgba(0, 255, 102, 0.8);
+  }
+}
+
+// Battle arena
+.dashboard__battle-arena {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 0 32px;
+}
+
+.dashboard__battle-card {
+  border: 1px solid $green;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: $green-bg-darker;
+  box-shadow: inset 0 0 10px rgba(0, 255, 102, 0.05);
+}
+
+.dashboard__battle-players {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.dashboard__player-container, 
+.dashboard__opponent-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: calc(50% - 20px);
+}
+
+.dashboard__opponent-container {
+  justify-content: flex-end;
+}
+
+.dashboard__vs {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: $green;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 5px 10px;
+  z-index: 1;
+  text-shadow: 0 0 5px rgba(0, 255, 102, 0.5);
+}
+
+.dashboard__player-avatar,
+.dashboard__opponent-avatar {
+  width: 60px;
+  height: 60px;
+  background: $panel;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $green;
+  flex-shrink: 0;
+  box-shadow: inset 0 0 10px rgba(0, 255, 102, 0.1);
+}
+
+.dashboard__avatar-icon {
+  font-size: 24px;
+}
+
+.dashboard__player-info,
+.dashboard__opponent-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+
+.dashboard__player-name,
+.dashboard__opponent-name {
+  font-weight: bold;
+  font-size: 1rem;
+  text-shadow: 0 0 5px rgba(0, 255, 102, 0.3);
+}
+
+.dashboard__player-level,
+.dashboard__opponent-alliance {
+  font-size: 0.8rem;
+}
+
+.dashboard__player-stats,
+.dashboard__opponent-stats {
+  font-size: 0.8rem;
+}
+
+.dashboard__player-winrate,
+.dashboard__opponent-winrate {
+  font-size: 0.8rem;
+}
+
+.dashboard__battle-details {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-top: 1px solid $green-dark;
+  border-bottom: 1px solid $green-dark;
+}
+
+.dashboard__battle-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.dashboard__battle-detail-label {
+  font-size: 0.7rem;
+  color: $green;
+}
+
+.dashboard__battle-detail-value {
+  font-size: 1rem;
+  font-weight: bold;
+  color: $green;
+}
+
+.dashboard__battle-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard__player-actions,
+.dashboard__bet-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.dashboard__btn {
+  font-family: $font;
+  font-size: 0.9rem;
+  padding: 6px 15px;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.dashboard__btn--battle {
+  background: $green;
+  color: $bg;
+  &:hover {
+    background: $green-light;
+    color: $bg;
+    box-shadow: 0 0 8px rgba(0, 255, 102, 0.8);
+  }
+}
+
+.dashboard__btn--profile,
+.dashboard__btn--bet {
+  background: $panel;
+  color: $green;
+  &:hover {
+    background: darken($panel, 5%);
+    box-shadow: 0 0 8px rgba(0, 255, 102, 0.4);
+  }
+}
+
+// History Page
+.dashboard__history {
+  padding: 0 32px;
+}
+
+.dashboard__history-header {
+  font-size: 1.8rem;
+  color: $green;
+  margin: 20px 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+// Battle History
+.dashboard__battle-history {
+  margin-bottom: 32px;
+  border: 1px solid $green;
+  background: $green-bg-darker;
+  box-shadow: inset 0 0 15px rgba(0, 255, 102, 0.05);
+}
+
+.dashboard__recent-battles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: $green-bg;
+}
+
+.dashboard__history-title {
+  font-size: 1.2rem;
+  color: $green;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(0, 255, 102, 0.3);
+}
+
+.dashboard__win-rate {
+  font-size: 1rem;
+  color: $green;
+}
+
+.dashboard__battle-history-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-top: 1px solid rgba(0, 255, 102, 0.2);
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background: rgba(0, 255, 102, 0.02);
+  }
+}
+
+.dashboard__battle-history-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dashboard__battle-status {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  
+  &--win {
+    background-color: $green;
+    box-shadow: 0 0 8px rgba(0, 255, 102, 0.8);
+  }
+  
+  &--lose {
+    background-color: #ff4d4d;
+    box-shadow: 0 0 8px rgba(255, 77, 77, 0.8);
+  }
+}
+
+.dashboard__battle-vs {
+  font-size: 1rem;
+  color: $green;
+}
+
+.dashboard__battle-date {
+  font-size: 0.8rem;
+  color: rgba(0, 255, 102, 0.7);
+  margin-top: 4px;
+  display: block;
+}
+
+.dashboard__battle-result {
+  font-size: 1rem;
+  text-align: right;
+  
+  &--win {
+    color: $green;
+    text-shadow: 0 0 5px rgba(0, 255, 102, 0.3);
+  }
+  
+  &--lose {
+    color: #ff4d4d;
+    text-shadow: 0 0 5px rgba(255, 77, 77, 0.3);
+  }
+}
+
+// Global Tournament Standings
+.dashboard__tournament-standings {
+  margin-top: 32px;
+  border: 1px solid $green;
+  background: $green-bg-darker;
+  box-shadow: inset 0 0 15px rgba(0, 255, 102, 0.05);
+}
+
+.dashboard__tournament-title {
+  font-size: 1.2rem;
+  color: $green;
+  padding: 16px;
+  margin: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: $green-bg;
+  text-shadow: 0 0 5px rgba(0, 255, 102, 0.3);
+}
+
+.dashboard__tournament-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dashboard__tournament-header {
+  font-size: 1rem;
+  font-weight: bold;
+  color: $green;
+  text-align: left;
+  padding: 12px 16px;
+  border-top: 1px solid rgba(0, 255, 102, 0.2);
+  text-transform: uppercase;
+}
+
+.dashboard__tournament-row {
+  border-top: 1px solid rgba(0, 255, 102, 0.2);
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background: rgba(0, 255, 102, 0.02);
+  }
+}
+
+.dashboard__tournament-cell {
+  padding: 16px;
+  color: $green;
+  font-size: 1rem;
+}
+
+.dashboard__section-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  border: 1px solid $green-dark;
+  margin: 0 32px;
+  color: $green;
+  font-size: 1.2rem;
+  background: $green-bg-darker;
+  box-shadow: inset 0 0 15px rgba(0, 255, 102, 0.05);
+}
+
+@media (max-width: 1100px) {
+  .dashboard__battle-arena {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .dashboard__stats {
+    gap: 24px;
+  }
+}
+
+// NFT Marketplace
+.dashboard__nft {
+  padding: 0 32px;
+}
+
+.dashboard__nft-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.dashboard__nft-balance {
+  font-size: 1.2rem;
+}
+
+.dashboard__nft-credits {
+  color: $green;
+  font-weight: bold;
+}
+
+.dashboard__nft-owned {
+  font-size: 1rem;
+}
+
+.dashboard__nft-count {
+  color: $green;
+  font-weight: bold;
+}
+
+.dashboard__nft-success {
+  display: flex;
+  padding: 16px;
+  border: 1px solid $green;
+  background: $green-bg-darker;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+.dashboard__nft-success-image {
+  width: 60px;
+  height: 60px;
+  margin-right: 16px;
+}
+
+.dashboard__nft-success-title {
+  font-weight: bold;
+  color: $green;
+  margin-bottom: 4px;
+}
+
+.dashboard__nft-success-desc {
+  font-size: 0.9rem;
+}
+
+.dashboard__nft-controls {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.dashboard__nft-search {
+  flex: 1;
+  position: relative;
+}
+
+.dashboard__nft-search-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid $green-dark;
+  background: $green-bg-darker;
+  color: $green;
+  font-family: $font;
+  
+  &:focus {
+    outline: none;
+    border-color: $green;
+  }
+}
+
+.dashboard__nft-search-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.dashboard__nft-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dashboard__nft-filter-label {
+  color: $green;
+}
+
+.dashboard__nft-filter-select {
+  padding: 8px 12px;
+  border: 1px solid $green-dark;
+  background: $green-bg-darker;
+  color: $green;
+  font-family: $font;
+  
+  &:focus {
+    outline: none;
+    border-color: $green;
+  }
+}
+
+.dashboard__nft-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.dashboard__nft-card {
+  border: 1px solid $green-dark;
+  background: $green-bg-darker;
+  transition: border-color 0.2s;
+  
+  &:hover {
+    border-color: $green;
+  }
+}
+
+.dashboard__nft-card-image {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 30, 0, 0.3);
+}
+
+.dashboard__nft-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.dashboard__nft-card-info {
+  padding: 16px;
+}
+
+.dashboard__nft-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.dashboard__nft-card-name {
+  font-weight: bold;
+  color: $green;
+}
+
+.dashboard__nft-card-rarity {
+  font-size: 0.8rem;
+}
+
+.dashboard__rarity--common {
+  color: #3A9D23;
+}
+
+.dashboard__rarity--uncommon {
+  color: #4CA3E0;
+}
+
+.dashboard__rarity--rare {
+  color: #A44CE0;
+}
+
+.dashboard__rarity--epic {
+  color: #E0944C;
+}
+
+.dashboard__rarity--legendary {
+  color: #E0E04C;
+}
+
+.dashboard__nft-card-desc {
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  height: 40px;
+  overflow: hidden;
+}
+
+.dashboard__nft-card-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.dashboard__nft-card-boost {
+  background: $panel;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+}
+
+.dashboard__nft-card-id {
+  background: rgba(14, 34, 20, 0.5);
+  padding: 4px 8px;
+  font-size: 0.8rem;
+}
+
+.dashboard__nft-card-purchase {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard__nft-card-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: $green;
+}
+
+.dashboard__nft-buy-btn {
+  border: none;
+  padding: 6px 12px;
+  font-family: $font;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dashboard__nft-buy-btn--available {
+  background: $green;
+  color: $bg;
+  
+  &:hover {
+    background: $green-light;
+    box-shadow: 0 0 8px rgba(0, 255, 102, 0.8);
+  }
+}
+
+.dashboard__nft-buy-btn--unavailable {
+  background: #333;
+  color: #777;
+  cursor: not-allowed;
+}
+
+.dashboard__owned-nfts {
+  margin-top: 32px;
+  border-top: 1px solid $green-dark;
+  padding-top: 24px;
+}
+
+.dashboard__owned-nfts-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: $green;
+  margin-bottom: 16px;
+  text-shadow: 0 0 5px rgba(0, 255, 102, 0.3);
+}
+
+.dashboard__owned-nfts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.dashboard__owned-nft-card {
+  border: 1px solid $green;
+  background: $green-bg-darker;
+}
+
+.dashboard__owned-nft-image {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: rgba(0, 30, 0, 0.3);
+}
+
+.dashboard__owned-nft-info {
+  padding: 12px;
+}
+
+.dashboard__owned-nft-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.dashboard__owned-nft-name {
+  font-weight: bold;
+  color: $green;
+  font-size: 0.9rem;
+}
+
+.dashboard__owned-nft-rarity {
+  font-size: 0.7rem;
+}
+
+.dashboard__owned-nft-boost {
+  background: $panel;
+  padding: 3px 6px;
+  font-size: 0.8rem;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.dashboard__owned-nft-date {
+  font-size: 0.8rem;
+  color: rgba(0, 255, 102, 0.7);
+}
+
+.dashboard__create-nft {
+  margin-top: 32px;
+  border: 1px solid $green-dark;
+  padding: 16px;
+  background: $green-bg-darker;
+}
+
+.dashboard__create-nft-title {
+  color: $green;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.dashboard__create-nft-desc {
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.dashboard__create-nft-btn {
+  background: $panel;
+  color: $green;
+  border: none;
+  padding: 6px 15px;
+  font-family: $font;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  
+  &:hover {
+    background: darken($panel, 5%);
+    box-shadow: 0 0 8px rgba(0, 255, 102, 0.4);
+  }
+}
+
+.dashboard__token-info {
+  margin-top: 32px;
+  border: 1px solid $green-dark;
+  padding: 16px;
+  background: $green-bg-darker;
+  margin-bottom: 32px;
+}
+
+.dashboard__token-info-title {
+  color: $green;
+  font-weight: bold;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.dashboard__token-info-content {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.dashboard__token-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  background: rgba(0, 30, 0, 0.4);
+  border-radius: 50%;
+  margin-right: 16px;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.dashboard__token-details {
+  flex: 1;
+}
+
+.dashboard__token-desc {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.dashboard__token-stats {
+  font-size: 0.8rem;
+}
+
+.dashboard__token-value,
+.dashboard__token-change {
+  color: $green;
+}
+
+.dashboard__token-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.dashboard__token-btn {
+  background: $panel;
+  color: $green;
+  border: none;
+  padding: 6px 12px;
+  font-family: $font;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  
+  &:hover {
+    background: darken($panel, 5%);
+    box-shadow: 0 0 8px rgba(0, 255, 102, 0.4);
+  }
+} 
